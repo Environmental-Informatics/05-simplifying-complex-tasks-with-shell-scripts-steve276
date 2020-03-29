@@ -57,7 +57,7 @@ gmt psxy HEStation.xy -J -R -Sc0.05 -Gred -O -V >> SoilMoistureStations.ps
 # -Df sets resolution of drawn coastlines and political boundaries to full[f]
 # -Sc0.05 makes high elevation markers smaller than all station markers to highlight them, S-size, c-circle, 0.05<0.15 
 
-#PartIII: convert postscript file to EPSI to TIFF image
+#PartIII: convert PostScript file to EPSI to TIFF image
 
 ps2epsi SoilMoistureStations.ps [SoilMoistureStations.epsi]
 convert [SoilMoistureStations.epsi] -density 150 SoilMoistureStations.TIF
