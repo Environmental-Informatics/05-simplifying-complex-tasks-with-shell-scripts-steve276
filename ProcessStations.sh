@@ -7,7 +7,6 @@
 #altitude=$(head -5 Station_01.txt | tail -1 | awk '{print $4}')
 # or cat Station_01.txt | sed -n '5 p'
 
-
 for file in StationData/*
 do
   altitude=$(cat $file | sed -n '5 p' | awk '{print $4}')
@@ -31,7 +30,6 @@ done
 
 echo
 echo Done separating station data
-
 
 #PartII: plot station locations and highlight high elevation stations
 
@@ -57,11 +55,9 @@ gmt psxy HEStation.xy -J -R -Sc0.05 -Gred -O -V >> SoilMoistureStations.ps
 # modifications to plot template
 # -Cl/blue fills lakes[l] with blue
 # -Df sets resolution of drawn coastlines and political boundaries to full[f]
-# -Sc0.05 makes high elevation markers smaller than all station markers to highlight them, S-size, c-circle, 0.05<0.15
- 
+# -Sc0.05 makes high elevation markers smaller than all station markers to highlight them, S-size, c-circle, 0.05<0.15 
 
 #PartIII: convert postscript file to EPSI to TIFF image
 
 ps2epsi SoilMoistureStations.ps [SoilMoistureStations.epsi]
-
 convert [SoilMoistureStations.epsi] -density 150 SoilMoistureStations.TIF
